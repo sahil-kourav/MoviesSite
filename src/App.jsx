@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import MoviesContent from './components/MoviesContent'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
      <main>
       <MoviesContent />
      </main>
+       <Footer />
     </div>
     </>
   )
