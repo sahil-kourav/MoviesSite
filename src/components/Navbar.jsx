@@ -16,25 +16,25 @@ const Navbar = () => {
           <nav className="hidden md:flex space-x-8">
             <a
               href="#"
-              className="text-white hover:text-purple-400 transition-all font-medium"
+              className="text-gray-800 hover:text-purple-400 transition-all font-medium"
             >
               Home
             </a>
             <a
               href="#trending"
-              className="text-white hover:text-purple-400 transition-all font-medium"
+              className="text-gray-800 hover:text-purple-400 transition-all font-medium"
             >
               Trending
             </a>
             <a
               href="#popular"
-              className="text-white hover:text-purple-400 transition-all font-medium"
+              className="text-gray-800 hover:text-purple-400 transition-all font-medium"
             >
               Popular
             </a>
             <a
               href="#top-rated"
-              className="text-white hover:text-purple-400 transition-all font-medium"
+              className="text-gray-800 hover:text-purple-400 transition-all font-medium"
             >
               Top Rated
             </a>
@@ -89,7 +89,7 @@ const Navbar = () => {
               </svg>
             </div>
             {/* Search Result dropdown conditional rendering */}
-            <div className="absolute mt-2 w-72 bg-neutral-800 rounded-lg shadow-lg overflow-hidden z-50">
+            <div className="absolute mt-2 w-60 bg-neutral-800 rounded-lg shadow-lg overflow-hidden z-50">
               <ul className="divide-y divide-neutral-700">
                 <li className="hover:bg-neutral-700">
                   <button className="flex items-center p-3 w-full text-left">
@@ -119,7 +119,7 @@ const Navbar = () => {
               </ul>
             </div>
 
-            <div className="absolute mt-2 w-72 bg-neutral-800 rounded-lg shadow-lg overflow-hidden z-50">
+            <div className="absolute mt-2 w-60 bg-neutral-800 rounded-lg shadow-lg overflow-hidden z-50">
               <div className="p-4 text-center text-neutral-400 text-sm">
                 No movies found matching...
               </div>
