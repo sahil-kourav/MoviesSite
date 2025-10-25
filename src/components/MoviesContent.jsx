@@ -72,7 +72,7 @@ const MoviesContent = () => {
         />
       </div>
       {/* <MoviesDetails /> */}
-      {selectedMovieId && <MoviesDetails />}
+      {selectedMovieId && <MoviesDetails movieId={selectedMovieId} onClose={closeMovieDetails} />}
     </>
   );
 };

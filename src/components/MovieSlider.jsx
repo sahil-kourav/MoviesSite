@@ -33,7 +33,8 @@ const MovieSlider = ({ title, movies, subtitle = "" }) => {
   }
 
   const handleMovieClick = (moviesId)=> {
-    openMoviesDetails(moviesId)
+    openMoviesDetails(moviesId);
+    console.log("Working");
   }
 
   if(!movies || movies.length === 0) {

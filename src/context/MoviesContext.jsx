@@ -44,7 +44,7 @@ export const MoviesProvider = ({ children }) => {
     fetchMovieData();
   }, []);
 
-  const openMoviesDetails = () => {
+  const openMoviesDetails = (moviesId) => {
     setSelectedMovieId(moviesId);
     document.body.style.overflow = "hidden";
   };
