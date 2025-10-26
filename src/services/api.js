@@ -85,7 +85,7 @@ export const fetchMovieDetails = async (movieId) => {
         );
 
         const data = await response.json();
-        return data.genres; 
+        return data; 
     } catch (error) {
         console.error("Error Fetching trending movies", error);
         return [];
