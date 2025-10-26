@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const ScrollToTop = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisiblity = () =>{
+    if(window.pageYOffset > 300){
+setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  const ScrollToTop = ()=>{
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+
+    useEffect(()=>{
+
+      window.addEventListener("scroll", toggleVisiblity);
+      return ()=>{
+        window.removeEventListener("scroll", toggleVisiblity);
+      }
+    }, [])
   return (
     <div className="fixed bottom-6 right-6 z-40">
       <button
         type="button"
-        className={`bg-purple-600 cursor-pointer hover:bg-purple-700 text-white p-2.5 rounded-full shadow-lg transition-all duration-300 focus:outline-none`}
+        className={`bg-purple-600 cursor-pointer hover:bg-purple-700 text-white p-2.5 rounded-full shadow-lg transition-all duration-300 focus:outline-none 
+          ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"}`}
+        onClick={ScrollToTop}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

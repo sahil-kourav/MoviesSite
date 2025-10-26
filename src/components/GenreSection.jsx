@@ -84,7 +84,7 @@ const GenreSection = () => {
               {/* Map Method */}
               {genreMovies.map((movie) => {
                 return (
-                  <div className="group cursor-pointer">
+                  <div className="group cursor-pointer" onClick={()=> openMoviesDetails(movie.id)}>
                     <div className="relative rounded-lg overflow-hidden bg-neutral-800">
                       <div className="aspect-[2/3]">
                         <img
