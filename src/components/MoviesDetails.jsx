@@ -10,7 +10,7 @@ const MoviesDetails = ({ movieId, onClose }) => {
   useEffect(() => {
     async function getMoviesDetails() {
       try {
-        setIsLoading(true);
+        {* setIsLoading(true); *}
         const movieData = await fetchMovieDetails(movieId);
         setMovie(movieData);
       } catch (error) {
