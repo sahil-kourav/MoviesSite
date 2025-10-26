@@ -7,7 +7,7 @@ const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransittioning, setIsTransittioning] = useState(false);
 
-  const featuredMovies = trendingMovies.slice(4, 9);
+  const featuredMovies = trendingMovies.slice(0, 5);
 
   useEffect(() => {
     if (loading || featuredMovies.length === 0) return;
