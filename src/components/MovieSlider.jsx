@@ -1,43 +1,42 @@
 import { BottleWine, Subscript } from "lucide-react";
 import React, { useRef, useState } from "react";
 import { getImageURL } from "../services/api";
-import { useMovies } from "../context/MoviesContext"
+import { useMovies } from "../context/MoviesContext";
 
 const MovieSlider = ({ title, movies, subtitle = "" }) => {
   const sliderRef = useRef(null);
   const [isScrolling, setIsScrolling] = useState(false);
   const [hoveredMovieId, setHoveredMoviesId] = useState(null);
-  const {openMoviesDetails} = useMovies()
+  const { openMoviesDetails } = useMovies();
 
-
-  const scroll = (direction)=>{
-    if(isScrolling) return;
+  const scroll = (direction) => {
+    if (isScrolling) return;
     setIsScrolling(true);
     const { current } = sliderRef;
-    const scrollAmount = direction === "left"
-    ? -current.clientWidth * 0.75
-    : current.clientWidth * 0.75;
+    const scrollAmount =
+      direction === "left"
+        ? -current.clientWidth * 0.75
+        : current.clientWidth * 0.75;
 
     current.scrollBy({
       left: scrollAmount,
       behavior: "smooth",
-    })
+    });
 
     setTimeout(() => {
       setIsScrolling(false);
     }, 10);
-  }
+  };
 
-  const formatRating = (rating)=> {
+  const formatRating = (rating) => {
     return (Math.round(rating * 10) / 10).toFixed(1);
-  }
+  };
 
-  const handleMovieClick = (moviesId)=> {
+  const handleMovieClick = (moviesId) => {
     openMoviesDetails(moviesId);
-    console.log("Working");
-  }
+  };
 
-  if(!movies || movies.length === 0) {
+  if (!movies || movies.length === 0) {
     return null;
   }
 
@@ -56,7 +55,7 @@ const MovieSlider = ({ title, movies, subtitle = "" }) => {
             <button
               className="p-2 rounded-full  cursor-pointer bg-neutral-800/70 hover:bg-neutral-700 text-white transition-all"
               aria-label="Scroll left"
-              onClick={()=> scroll("left")}
+              onClick={() => scroll("left")}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +75,7 @@ const MovieSlider = ({ title, movies, subtitle = "" }) => {
             <button
               className="p-2 rounded-full cursor-pointer bg-neutral-800/70 hover:bg-neutral-700 text-white transition-all"
               aria-label="Scroll right"
-              onClick={()=> scroll("right")}
+              onClick={() => scroll("right")}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -98,17 +97,20 @@ const MovieSlider = ({ title, movies, subtitle = "" }) => {
 
         {/* Mobile Slider */}
         <div className="relative">
-          <div className="flex space-x-4 overflow-x-hidden scrollbar-hide pb-4 snap-x"
-          ref={sliderRef}
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          <div
+            className="flex space-x-4 overflow-x-hidden scrollbar-hide pb-4 snap-x"
+            ref={sliderRef}
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {/* Conditional Rendering */}
             {movies.map((movie) => {
               return (
                 <div
                   className="min-w-[200px] md:min-w-[240px] snap-start relative group cursor-pointer"
-                  key={movie.id} onMouseEnter={()=> setHoveredMoviesId(movie.id)} onMouseLeave={()=> setHoveredMoviesId(null)}
-                  onClick={()=> handleMovieClick(movie.id)}
+                  key={movie.id}
+                  onMouseEnter={() => setHoveredMoviesId(movie.id)}
+                  onMouseLeave={() => setHoveredMoviesId(null)}
+                  onClick={() => handleMovieClick(movie.id)}
                 >
                   <div className="rounded-lg overflow-hidden bg-neutral-800">
                     <div className="relative aspect-[2/3]">
@@ -139,7 +141,7 @@ const MovieSlider = ({ title, movies, subtitle = "" }) => {
                             </span>
                           </div>
 
-                          <button className="w-full  bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-md flex items-center justify-center gap-1 transition-all text-sm">
+                          <button className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-md flex items-center justify-center gap-1 transition-all text-sm">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               className="w-4 h-4"
@@ -148,7 +150,7 @@ const MovieSlider = ({ title, movies, subtitle = "" }) => {
                             >
                               <path
                                 fillRule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A11 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm-0.445-10.832A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
                                 clipRule="evenodd"
                               />
                             </svg>

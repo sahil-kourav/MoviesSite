@@ -55,7 +55,7 @@ export const MoviesProvider = ({ children }) => {
   };
 
   return (
-    <MoviesContext
+    <MoviesContext.Provider
       value={{
         trendingMovies,
         popularMovies,
@@ -69,6 +69,6 @@ export const MoviesProvider = ({ children }) => {
       }}
     >
       {children}
-    </MoviesContext>
+    </MoviesContext.Provider>
   );
 };
